@@ -9,12 +9,14 @@ layout: example/views/_master
 {% set form =  {
     "method": "GET",
     "attributes": {
-        "action":  pageInfo.rootPath + "/age.html"
+        "action":  pageInfo.rootPath + "/age.html",
+        "onsubmit": "return validateEntry()"
     }
 } %}
 
 {% block main %}
     <h1>What is your name?</h1>
+
     {{
         onsInput({
             "id": "first-name",
