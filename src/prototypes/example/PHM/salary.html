@@ -6,35 +6,32 @@ layout: example/views/_master
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 
+{% set prevPage = "age" %}
 {% set form =  {
     "method": "GET",
     "attributes": {
-        "action":  pageInfo.rootPath + "/age.html",
-        "onsubmit": "return validateEntry()"
+        "action":  pageInfo.rootPath + "/summary.html"
     }
 } %}
 
 {% block main %}
-    <h1>What is your name?</h1>
-
+    <h1>How much do you earn?</h1>
     {{
         onsInput({
-            "id": "first-name",
-            "name": "first-name",
+            "id": "prefixed",
+            "type": "number",
+            "width": "6",
+            "autocomplete": "off",
+            "required": true,
             "label": {
-                "text": "First name"
+                "text": "Your annual salary before taxes"
+            },
+            "prefix": {
+                "title": "British pounds (GBP)",
+                "text": "£"
             }
         })
-    }}
-    {{
-        onsInput({
-            "id": "last-name",
-            "name": "last-name",
-            "label": {
-                "text": "Surname"
-            }
-        })
-    }}
+    }}    
     {{
         onsButton({
             "text": "Save and continue",
