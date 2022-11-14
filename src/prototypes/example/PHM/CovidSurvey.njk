@@ -1,0 +1,47 @@
+
+---
+group: Examples
+title: Example prototype
+layout: example/views/_master
+---
+
+{% extends "layout/_template.njk" %}
+{% from "components/access-code/_macro.njk" import onsUACInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+
+{% set pageConfig = {
+    "header": {
+        "title": "ONS Surveys"
+    }
+} %}
+
+{% set form =  {
+    "method": "post",
+    "attributes": {
+        "name": "EnterUAC",
+        "action":  "/prototypes/example/PHM/RHuac.html"
+    }
+} %}
+
+{% block main %}
+    <h1 class="ons-u-mt-l">Welcome to the COVID-19 Infection Survey</h1>
+    <p>Thank you for taking part in this national survey.</p>
+    <p>The answers you provide continue to be important in helping us monitor how variants impact your community, and work out who might continue to need ‘booster’ vaccinations in the future if symptoms are getting worse. The data from your continued participation could also allow us to act as an early warning system in the longer term, offering the NHS an indication of respiratory virus levels circulating the community and helping them prepare to face potential pressures.
+    </p>
+    <p>Please proceed to the questionnaire. You will need your unique 16 character access code which can be found at the top of your testing window notification.
+    </p>
+    <p>If you are not available to take part this month, you do not need to do anything, we will contact you in advance of your next testing window.
+    </p>
+
+
+    {{ onsButton({
+        "text": "Continue",
+        "classes": "ons-u-mb-xl",
+        "type": "submit"
+    }) }}
+
+
+{% endblock %}
+
