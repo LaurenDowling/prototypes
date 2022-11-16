@@ -1,0 +1,74 @@
+
+---
+group: Examples
+title: ONS Surveys
+layout: example/views/_master
+---
+
+{% from "components/access-code/_macro.njk" import onsUACInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+
+{% set pageConfig = {
+    "header": {
+        "title": "ONS Surveys",
+        "signoutButton": {
+            "text": "Save and exit",
+            "iconType": "exit",
+            "iconPosition": "after",
+            "url": pageInfo.rootPath + "/ProgressSaved"
+        },
+        "language": {
+            "languages": [
+                {
+                    "url": "#0",
+                    "ISOCode": "en",
+                    "text": "English",
+                    "current": true
+                }
+            ]
+        }
+    },
+
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+   
+} %}
+
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "name": "submit",
+        "action": pageInfo.rootPath + "/thankyou"
+    }
+} %}
+
+{% block main %}
+    <h1 class="ons-u-mt-l">Submit your questionnaire</h1>
+
+{% call onsPanel({
+        "type": 'warn'
+    })
+%}
+    You cannot view your answers after submission
+{% endcall %}
+<br>
+
+    {{ onsButton({
+        "text": "Submit",
+        "classes": "ons-u-mb-xl",
+        "type": "submit"
+    }) }}
+
+{% endblock %}
+
+{% block bodyEnd %}
+
+{% endblock %}

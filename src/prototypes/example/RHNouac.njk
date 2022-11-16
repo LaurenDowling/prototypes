@@ -1,28 +1,20 @@
 
 ---
 group: Examples
-title: ONS Surveys
+title: Example prototype
 layout: example/views/_master
 ---
 
+{% extends "layout/_template.njk" %}
 {% from "components/access-code/_macro.njk" import onsUACInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 
 {% set pageConfig = {
-    "header": {
-        "title": "ONS Surveys"
-    },
-     "footer": {
-        "OGLLink": {
-            "pre": 'All content is available under the',
-            "link": 'Open Government Licence v3.0',
-            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-            "post": ', except where otherwise stated'
-        }
-    }
+  "title": "ONS Surveys"
 } %}
+
 {% set form =  {
     "method": "GET",
     "attributes": {
@@ -33,26 +25,50 @@ layout: example/views/_master
 } %}
 
 {% block main %}
+    {% call
+        onsPanel({
+            title: "There is a problem with this page",
+            type: "error"
+        })
+    %}
+
+        {% from "components/lists/_macro.njk" import onsList %}
+        {{
+            onsList({
+                "element": "ol",
+                "itemsList": [
+                    {
+                        "text": "Enter an access code",
+                        "url": "#uac-error",
+                        "variants": "inPageLink"
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+
     <h1 class="ons-u-mt-l">Start study</h1>
 
     {{ onsUACInput({
         "id": "uac",
         "name": "uac",
-
         "label": {
             "text": "Enter your 16-character access code",
-            "description": "Keep this code safe. You will need to enter it every time you access your study"
+            "description": "Keep this code safe. You will need to enter it every time you access your survey"
         },
-        "securityMessage": "Your personal information is protected by law and will be kept confidential"
+        "securityMessage": "Your personal information is protected by law and will be kept confidential",
+        "error": {
+            "id": "uac-error",
+            "text": "Enter an access code"
+        }
     }) }}
 
     {{ onsButton({
         "text": "Access study",
-        "classes": "ons-u-mb-xl",
-        "type": "submit"
+        "classes": "ons-u-mb-xl"
     }) }}
 
-    <h2>Where to find your access code</h2>
+   <h2>Where to find your access code</h2>
     <p>
         Your access code can be found in the invitation letter or email you received.
     </p>
@@ -86,11 +102,11 @@ layout: example/views/_master
             }
             else if (x == "") {
                 console.log('No UAC entered');
-                document.forms["EnterUAC"].action = "/prototypes/example/RHNouac.html";
+                document.forms["EnterUAC"].action = "#";
                 sessionStorage.setItem('invalidUAC', x);    
             }
             else if((x !== "") && (x !== "1234 5678 9123 4567")){
-                document.forms["EnterUAC"].action = "/prototypes/example/RHIVuac.html";    
+                document.forms["EnterUAC"].action = "/prototypes/example/PHM/RHIVuac.html";    
                 sessionStorage.setItem('invalidUAC', x);    
             }
 
