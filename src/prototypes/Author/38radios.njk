@@ -1,0 +1,302 @@
+---
+group: Examples
+title: Example prototype
+layout: example/views/_master
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action": "#",
+        "name": "EnterName"
+    }
+} %}
+
+{% block main %}
+    <h1>What topic are you most interested in?</h1>
+
+
+       {{onsRadios({
+            "name": "property-type",
+            "dontWrap": true,
+            "radios": [
+                {
+                    "id": "Retail and wholesale",
+                    "label": {
+                        "text": "Brexit"
+                    },
+                    "value": "1"
+                },
+                {
+                    "id": "Health and social care",
+                    "label": {
+                        "text": "The EU"
+                    },
+                    "value": "2"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Coronavirus"
+                    },
+                    "value": "3"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Business"
+                    },
+                    "value": "4"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Economy"
+                    },
+                    "value": "5"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Transport"
+                    },
+                    "value": "6"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Work and incomes"
+                    },
+                    "value": "7"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Monthly economic updates"
+                    },
+                    "value": "8"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Economic indicators"
+                    },
+                    "value": "9"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Communities"
+                    },
+                    "value": "10"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Crime"
+                    },
+                    "value": "11"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Culture, media and sport"
+                    },
+                    "value": "12"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Family and civil law"
+                    },
+                    "value": "13"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Immigration"
+                    },
+                    "value": "14"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Justice"
+                    },
+                    "value": "15"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Security"
+                    },
+                    "value": "16"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Devolution"
+                    },
+                    "value": "17"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Elections"
+                    },
+                    "value": "18"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Government"
+                    },
+                    "value": "19"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Local government"
+                    },
+                    "value": "20"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Parliament"
+                    },
+                    "value": "21"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Climate change"
+                    },
+                    "value": "22"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Energy"
+                    },
+                    "value": "23"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Environment"
+                    },
+                    "value": "24"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Sciences"
+                    },
+                    "value": "25"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Technology"
+                    },
+                    "value": "26"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Education"
+                    },
+                    "value": "27"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Families and social services"
+                    },
+                    "value": "28"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Health"
+                    },
+                    "value": "29"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Housing and planning"
+                    },
+                    "value": "30"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Welfare and pensions"
+                    },
+                    "value": "31"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Africa"
+                    },
+                    "value": "32"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Americas"
+                    },
+                    "value": "33"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Asia"
+                    },
+                    "value": "34"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Europe"
+                    },
+                    "value": "35"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Middle East"
+                    },
+                    "value": "36"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Defence"
+                    },
+                    "value": "37"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Institutions"
+                    },
+                    "value": "38"
+                }
+            ]
+        })
+    }}
+
+    {{
+        onsButton({
+            "text": "Save and continue",
+            "classes": "ons-u-mt-l"
+        })
+    }}
+{% endblock %}
