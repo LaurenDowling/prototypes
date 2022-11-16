@@ -1,0 +1,155 @@
+---
+group: Examples
+title: Example prototype
+layout: example/views/_master
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action": "#",
+        "name": "EnterName"
+    }
+} %}
+
+{% block main %}
+    <h1>Select your industry</h1>
+
+
+       {{onsRadios({
+            "name": "property-type",
+            "dontWrap": true,
+            "radios": [
+                {
+                    "id": "Retail and wholesale",
+                    "label": {
+                        "text": "Retail and wholesale"
+                    },
+                    "value": "house"
+                },
+                {
+                    "id": "Health and social care",
+                    "label": {
+                        "text": "Health and social care"
+                    },
+                    "value": "flat"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Professional and technical"
+                    },
+                    "value": "mobile"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Admin and support"
+                    },
+                    "value": "house"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Education"
+                    },
+                    "value": "flat"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Manufacturing"
+                    },
+                    "value": "mobile"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Accommodation and food"
+                    },
+                    "value": "house"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Construction"
+                    },
+                    "value": "flat"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Transport"
+                    },
+                    "value": "mobile"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Public sector and defence"
+                    },
+                    "value": "house"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "IT and communications"
+                    },
+                    "value": "flat"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Financial services"
+                    },
+                    "value": "mobile"
+                },
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Arts, entertainment and recreation"
+                    },
+                    "value": "house"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Other services"
+                    },
+                    "value": "flat"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Real estate activities"
+                    },
+                    "value": "mobile"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Utilities"
+                    },
+                    "value": "flat"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Agriculture"
+                    },
+                    "value": "mobile"
+                }
+            ]
+        })
+    }}
+
+    {{
+        onsButton({
+            "text": "Save and continue",
+            "classes": "ons-u-mt-l"
+        })
+    }}
+{% endblock %}
