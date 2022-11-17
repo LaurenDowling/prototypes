@@ -93,12 +93,22 @@ layout: example/views/_master
 
 
 {% block bodyEnd %}
+    <script>
+        function validateUAC(){
+            let x = document.forms["EnterUAC"]["uac"].value;
+            if(x == "RRSK NLDK ZDZG TFMQ"){
+                document.forms["EnterUAC"].action = "https://staging-runner.eq.gcp.onsdigital.uk/questionnaire/introduction-block/";    
+            }
+            else if (x == "") {
+                console.log('No UAC entered');
+                document.forms["EnterUAC"].action = "/prototypes/example/RHNouac.html";
+                sessionStorage.setItem('invalidUAC', x);    
+            }
+            else if((x !== "") && (x !== "RRSK NLDK ZDZG TFMQ")){
+                document.forms["EnterUAC"].action = "/prototypes/example/RHIVuac.html";    
+                sessionStorage.setItem('invalidUAC', x);    
+            }
 
-<script>
-        console.log('hello world');
-        var y = sessionStorage.getItem('invalidUAC');
-        console.log(y);
-        document.getElementById('uac').value = y;
-
-</script>
+        }
+    </script>
 {% endblock %}

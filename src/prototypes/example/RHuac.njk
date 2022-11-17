@@ -81,7 +81,7 @@ layout: example/views/_master
     <script>
         function validateUAC(){
             let x = document.forms["EnterUAC"]["uac"].value;
-            if(x == "1234 5678 9123 4567"){
+            if(x == "RRSK NLDK ZDZG TFMQ"){
                 document.forms["EnterUAC"].action = "https://staging-runner.eq.gcp.onsdigital.uk/questionnaire/introduction-block/";    
             }
             else if (x == "") {
@@ -89,7 +89,7 @@ layout: example/views/_master
                 document.forms["EnterUAC"].action = "/prototypes/example/RHNouac.html";
                 sessionStorage.setItem('invalidUAC', x);    
             }
-            else if((x !== "") && (x !== "1234 5678 9123 4567")){
+            else if((x !== "") && (x !== "RRSK NLDK ZDZG TFMQ")){
                 document.forms["EnterUAC"].action = "/prototypes/example/RHIVuac.html";    
                 sessionStorage.setItem('invalidUAC', x);    
             }
