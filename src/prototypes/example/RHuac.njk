@@ -12,7 +12,29 @@ layout: example/views/_master
 
 {% set pageConfig = {
     "header": {
-        "title": "ONS Surveys"
+        "title": "ONS Surveys",
+        "language": {
+            "languages": [
+                {
+                    "url": "#0",
+                    "ISOCode": "en",
+                    "text": "English",
+                    "current": true
+                },
+                {
+                    "url": "#0",
+                    "ISOCode": "ga",
+                    "text": "Gaeilge",
+                    "current": false
+                },
+                {
+                    "url": "#0",
+                    "ISOCode": "sco",
+                    "text": "Ulstèr-Scotch",
+                    "current": false
+                }
+            ]
+        }
     },
      "footer": {
         "OGLLink": {
@@ -22,6 +44,7 @@ layout: example/views/_master
             "post": ', except where otherwise stated'
         }
     }
+
 } %}
 {% set form =  {
     "method": "GET",
@@ -82,7 +105,7 @@ layout: example/views/_master
         function validateUAC(){
             let x = document.forms["EnterUAC"]["uac"].value;
             if(x == "RRSK NLDK ZDZG TFMQ"){
-                document.forms["EnterUAC"].action = "https://staging-runner.eq.gcp.onsdigital.uk/questionnaire/introduction-block/";    
+                document.forms["EnterUAC"].action = "https://author.eqbs.gcp.onsdigital.uk/launch/5e2d787c-931c-4a53-b696-30f08c054c4a";    
             }
             else if (x == "") {
                 console.log('No UAC entered');

@@ -13,6 +13,12 @@ layout: example/views/_master
 {% set pageConfig = {
     "header": {
         "title": "Service name",
+        "signoutButton": {
+            "text": "Save and exit survey",
+            "iconType": "exit",
+            "iconPosition": "after",
+            "url": "/prototypes/example/ProgressSaved"
+        },
         "language": {
             "languages": [
                 {
@@ -36,6 +42,15 @@ layout: example/views/_master
             ]
         }
     },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "text": 'Previous',
+                "url": '#0'
+            }
+        ]
+    },
 
     "footer": {
         "OGLLink": {
@@ -52,27 +67,14 @@ layout: example/views/_master
     "method": "GET",
     "attributes": {
         "name": "EnterUAC",
-        "action": "#",
-        "onsubmit": "return validateUAC()"
+        "action": "#"
     }
 } %}
 
 {% block main %}
-        {% call onsPanel({
-        "type": "success",
-        "classes": "ons-u-mb-m",
-        "iconType": "check",
-        "iconSize": "xl"
-    }) %}
-        <h1>Your progress has been saved</h1>
-    {% endcall %}
+    <h1 class="ons-u-mt-l">How old are you?</h1>
 
-    {% call onsPanel({
-        "type": "warn",
-        "classes": "ons-u-mb-m"
-    }) %}
-        <p>Keep your 16-character access code safe. You will need to enter it again to <a href="/prototypes/example/RHuac.html">access your survey</a>.</p>
-    {% endcall %}
+
 {% endblock %}
 
 {% block bodyEnd %}

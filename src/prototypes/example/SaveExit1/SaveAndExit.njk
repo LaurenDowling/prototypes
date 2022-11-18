@@ -12,12 +12,12 @@ layout: example/views/_master
 
 {% set pageConfig = {
     "header": {
-        "title": "ONS Surveys",
+        "title": "Service name",
         "signoutButton": {
-            "text": "Save and exit",
+            "text": "Save and exit survey",
             "iconType": "exit",
             "iconPosition": "after",
-            "url": pageInfo.rootPath + "/ProgressSaved"
+            "url": "/prototypes/example/ProgressSaved"
         },
         "language": {
             "languages": [
@@ -26,6 +26,18 @@ layout: example/views/_master
                     "ISOCode": "en",
                     "text": "English",
                     "current": true
+                },
+                {
+                    "url": "#0",
+                    "ISOCode": "ga",
+                    "text": "Gaeilge",
+                    "current": false
+                },
+                {
+                    "url": "#0",
+                    "ISOCode": "sco",
+                    "text": "Ulstèr-Scotch",
+                    "current": false
                 }
             ]
         }

@@ -1,11 +1,18 @@
 ---
 group: Examples
+title: ONS Surveys
 layout: example/views/_master
 ---
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-{% set prevPage = "index" %}
+
+{% set pageConfig = {
+    "header": {
+        "title": "ONS Surveysssss"
+    }
+} %}
+
 {% set form =  {
     "method": "GET",
     "attributes": {
@@ -13,8 +20,10 @@ layout: example/views/_master
     }
 } %}
 
+
+
 {% block main %}
-    <h1>Submit study</h1>
+    <h1>Submit studyyyy</h1>
     {% call onsPanel({
             "type": "warn"
         })

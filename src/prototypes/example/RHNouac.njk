@@ -12,7 +12,31 @@ layout: example/views/_master
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 
 {% set pageConfig = {
-  "title": "ONS Surveys"
+    "header": {
+        "title": "ONS Surveys",
+        "language": {
+            "languages": [
+                {
+                    "url": "#0",
+                    "ISOCode": "en",
+                    "text": "English",
+                    "current": true
+                },
+                {
+                    "url": "#0",
+                    "ISOCode": "ga",
+                    "text": "Gaeilge",
+                    "current": false
+                },
+                {
+                    "url": "#0",
+                    "ISOCode": "sco",
+                    "text": "Ulstèr-Scotch",
+                    "current": false
+                }
+            ]
+        }
+    }
 } %}
 
 {% set form =  {
