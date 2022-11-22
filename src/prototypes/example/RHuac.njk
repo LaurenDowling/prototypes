@@ -102,6 +102,7 @@ layout: example/views/_master
 
 {% block bodyEnd %}
     <script>
+
         function validateUAC(){
             let x = document.forms["EnterUAC"]["uac"].value;
             if(x == "RRSK NLDK ZDZG TFMQ"){
@@ -110,7 +111,6 @@ layout: example/views/_master
             else if (x == "") {
                 console.log('No UAC entered');
                 document.forms["EnterUAC"].action = "/prototypes/example/RHNouac.html";
-                sessionStorage.setItem('invalidUAC', x);    
             }
             else if((x !== "") && (x !== "RRSK NLDK ZDZG TFMQ")){
                 document.forms["EnterUAC"].action = "/prototypes/example/RHIVuac.html";    

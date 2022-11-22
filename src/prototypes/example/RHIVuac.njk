@@ -39,9 +39,15 @@ layout: example/views/_master
     }
 } %}
 
-{% block head %}
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "name": "EnterUAC",
+        "action": "#",
+        "onsubmit": "return validateUAC()"
+    }
+} %}
 
-{% endblock %}
 
 {% block main %}
     {% call
@@ -118,7 +124,13 @@ layout: example/views/_master
 
 {% block bodyEnd %}
     <script>
+
+        console.log('function executing');
+        y = sessionStorage.getItem('invalidUAC');
+        document.forms["EnterUAC"]["uac"].value = y;
+
         function validateUAC(){
+            sessionStorage.removeItem('invalidUAC');
             let x = document.forms["EnterUAC"]["uac"].value;
             if(x == "RRSK NLDK ZDZG TFMQ"){
                 document.forms["EnterUAC"].action = "https://staging-runner.eq.gcp.onsdigital.uk/questionnaire/introduction-block/";    
