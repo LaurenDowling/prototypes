@@ -25,13 +25,7 @@ layout: example/views/_master
                 {
                     "url": "#0",
                     "ISOCode": "ga",
-                    "text": "Gaeilge",
-                    "current": false
-                },
-                {
-                    "url": "#0",
-                    "ISOCode": "sco",
-                    "text": "Ulstèr-Scotch",
+                    "text": "Cymraeg",
                     "current": false
                 }
             ]
@@ -130,7 +124,7 @@ layout: example/views/_master
                 sessionStorage.setItem('invalidUAC', x);    
             }
             else if((x !== "") && (x !== "RRSK NLDK ZDZG TFMQ")){
-                document.forms["EnterUAC"].action = "/prototypes/example/RHIVuac.html";    
+                document.forms["EnterUAC"].action = "/prototypes/example/SaveExit1/RHIVuac.html";    
                 sessionStorage.setItem('invalidUAC', x);    
             }
 

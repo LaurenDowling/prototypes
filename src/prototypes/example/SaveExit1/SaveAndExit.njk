@@ -9,6 +9,9 @@ layout: example/views/_master
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+
 
 {% set pageConfig = {
     "header": {
@@ -30,13 +33,19 @@ layout: example/views/_master
                 {
                     "url": "#0",
                     "ISOCode": "ga",
-                    "text": "Gaeilge",
+                    "text": "Help",
                     "current": false
                 },
                 {
                     "url": "#0",
-                    "ISOCode": "sco",
-                    "text": "Ulstèr-Scotch",
+                    "ISOCode": "ga",
+                    "text": "My account",
+                    "current": false
+                },
+                {
+                    "url": "#0",
+                    "ISOCode": "ga",
+                    "text": "Sign out",
                     "current": false
                 }
             ]
@@ -72,7 +81,45 @@ layout: example/views/_master
 } %}
 
 {% block main %}
-    <h1 class="ons-u-mt-l">How old are you?</h1>
+
+{% call onsQuestion({
+    "title": "Have you successfully taken your swab sample?",
+    "description": "If you are planning to take your sample but have not yet done so, please exit the questionnaire and return when you have taken it. This is because we will ask questions about your samples that help us to understand if you are eligible for a voucher.
+
+",
+    "classes": "ons-u-mt-no",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsRadios({
+            "name": "property-type",
+            "dontWrap": true,
+            "radios": [
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "Yes"
+                    },
+                    "value": "house"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "No"
+                    },
+                    "value": "flat"
+                }
+            ]
+        })
+    }}
+{% endcall %}
+
+{{
+    onsButton({
+        "text": "Save and continue"
+    })
+}}
+
 
 
 {% endblock %}
