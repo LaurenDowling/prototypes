@@ -9,6 +9,10 @@ layout: example/views/_master
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/footer/_macro.njk" import onsFooter %}
+
+
+
 
 {% set pageConfig = {
     "header": {
@@ -41,15 +45,6 @@ layout: example/views/_master
                 }
             ]
         }
-    },
-
-    "footer": {
-        "OGLLink": {
-            "pre": 'All content is available under the',
-            "link": 'Open Government Licence v3.0',
-            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-            "post": ', except where otherwise stated'
-        }
     }
    
 } %}
@@ -63,6 +58,39 @@ layout: example/views/_master
     }
 } %}
 
+{% block head %}
+    <link rel="stylesheet" href="/prototypes/example/styles.css" />
+
+    <style>
+        .header{
+            font-weight:600;
+            display:inline-block;
+            width: 41.6666666667%;
+            margin-bottom: 0px;
+        }
+
+        .cell{
+            display:inline-block;
+        }
+
+        .firstRow{
+            margin-bottom: 9px;
+        }
+
+        .panelStyling{
+            background-color: #e2e2e3;
+            padding:18px !important;
+        }
+        .GreyLink{
+            color: #414042;
+        }
+
+        .ons-page{
+            min-height:0px !important;
+        }
+    </style>
+{% endblock %}
+
 {% block main %}
         {% call onsPanel({
         "type": "success",
@@ -70,10 +98,12 @@ layout: example/views/_master
         "iconType": "check",
         "iconSize": "xl"
     }) %}
-        <h1>Thank yyou for completing the ONS survey</h1>
+        <h1>Thank you for completing the ONS survey</h1>
         <p>Your answers have been submitted for participant first name</p>
-        <p>Submitted on:</p>
-        <p>Submission reference:</p>
+        <p class = "header firstRow">Submitted on:</p>
+        <p class="cell firstRow">29 November 2022 at 11:30</p>
+        <p class = "header">Submission reference:</p>
+        <p class="cell">3062 - 8860 - 6F38 - 11ED</p>
 
 
     {% endcall %}
@@ -81,16 +111,47 @@ layout: example/views/_master
     <p>If another household member wants to start their questionnaire using the same device, you will need to click the ‘leave this page’ link below. They will then need to log in using their unique 16 character access code in the email or letter they were sent.
 
     </p>
-    <br><br>
 
-    {% call onsPanel({
-        "type": "warn",
-        "classes": "ons-u-mb-m"
-    }) %}
-        <p>Make sure you <a href="/prototypes/example/RHuac">leave this page</a> or close your browser if using a shared device.</p>
-    {% endcall %}
+    
 {% endblock %}
 
 {% block bodyEnd %}
+{{
+    onsFooter({
+        "footerWarning": "Make sure you <a href='/prototypes/example/RHuac.html'>leave this page</a> or close your browser if using a shared device",
+        "newTabWarning": 'The following links open in a new tab',"rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'What we do',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Contact us',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Accessibility',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ],
+        "legal": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'Cookies',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Privacy and data protection',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ]
+    })
+}}
 
 {% endblock %}
