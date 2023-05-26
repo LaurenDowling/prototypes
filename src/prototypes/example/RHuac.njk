@@ -140,4 +140,19 @@ layout: example/views/_master
 
         }
     </script>
+
+        <script>
+
+        function YesOrNo(){
+            let x = document.forms["CheckDetailsAreCorrect"]["correctornot"].value;
+            if(x == "yes"){
+                document.forms["CheckDetailsAreCorrect"].action = "contact_details.html";    
+            }
+            if (x == "no") {
+                console.log('No UAC entered');
+                document.forms["CheckDetailsAreCorrect"].action = "change_details.html";
+            }
+
+        }
+    </script>
 {% endblock %}
